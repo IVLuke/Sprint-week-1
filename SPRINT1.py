@@ -2,6 +2,7 @@
 # Authors: Nathan Greene & Luke Jones
 # Date Completed: June 21st, 2022
 
+# Imports
 import math
 import matplotlib.pyplot as plt
 import datetime
