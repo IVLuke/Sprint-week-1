@@ -46,6 +46,8 @@ def EmpTravelClaim():
     CB1 = datetime.datetime.strptime(CB1, "%Y-%m-%d")
     CB2 = "2022-12-22"
     CB2 = datetime.datetime.strptime(CB2, "%Y-%m-%d")
+    kmTrav = 0
+
 
     # Input values
     while ENDSTATE == "CONTINUE":
@@ -106,12 +108,11 @@ def EmpTravelClaim():
 
         while CarOption == "O":
             try:
-                kmTrav = input("Enter the kilometers traveled (Don't exceed 2000km): ")
+                kmTrav = int(input("Enter the kilometers traveled (Don't exceed 2000km): "))
             except:
-                print("Error - Must mot exceed 2000km!")
+                print("Error - Must not exceed 2000km!")
                 continue
             else:
-                kmTrav = int(kmTrav)
                 if kmTrav > 2000:
                     print("Error - Must not exceed 2000km!")
                     continue
@@ -179,8 +180,8 @@ def EmpTravelClaim():
         print(f"KM travelled:        {kmTrav}         ")
         print()
         print(f"Claim type:          {ClaimType}      ")
-        print(f"Per Diem Amount:     {PerDiemAmt}     ")
-        print(f"Mileage Amount       {MileAmt}        ")
+        print(f"Per Diem Amount:     {FComma2(PerDiemAmt)}     ")
+        print(f"Mileage Amount       {FComma2(MileAmt)}        ")
         print("---------------------------------------")
         print(f"Bonus                {FComma2(Bonus)}")
         print(f"Claim Amount:        {FComma2(ClaimAmt)}")
@@ -293,7 +294,7 @@ def QuitProgram():
 
 # Loop for the menu
 while True:
-
+    print()
     print("NL Chocolate Company")
     print("Travel Claims Processing System")
     print()
@@ -333,4 +334,3 @@ while True:
     elif Choice == 5:
         QuitProgram()
         break
-
